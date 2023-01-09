@@ -45,13 +45,16 @@ const Home = () => {
       setRetry(0);
     }
 
+    // replace somudro with unique identifier
+    const finalInput = input.replace(/somudro/gi, 'sksks man')
+
     // fetch request
     const response = await fetch('/api/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'image/jpeg',
       },
-      body: JSON.stringify({ input }),
+      body: JSON.stringify({ input: finalInput }),
     });
 
     // convert response to json
@@ -112,15 +115,15 @@ const Home = () => {
   return (
     <div className="root">
       <Head>
-        <title>Silly picture generator | buildspace</title>
+        <title>Bad picture generator | buildspace</title>
       </Head>
       <div className="container">
         <div className="header">
           <div className="header-title">
-            <h1>make deepfakes!</h1>
+            <h1>Make bad deepfakes!</h1>
           </div>
           <div className="header-subtitle">
-            <h2>Turn me into anyone you want! Make sure you refer to me as "sksks" in the prompt</h2>
+            <h2>Make fake pictures and art of me (somudro)! (Example: "an ultrarealistic photo of somudro")</h2>
           </div>
           <div className="prompt-container">
             <input className="prompt-box" value={input} onChange={onChange} />
